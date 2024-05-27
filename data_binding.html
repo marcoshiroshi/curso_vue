@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>passagemem de dados</title>
+
+</head>
+<body>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.min.js"></script>
+
+    <div id="data_binding">
+        <h1 v-bind:title="tagMessage">{{message}}</h1>
+        <h1>{{ message.toUpperCase() }}</h1>
+        <p>meu nome é {{ person.name }}, tenho {{ person.anos }} anos</p>
+    </div>
+
+    <span v-html="tag">
+
+    </span>
+    
+
+    <script>
+        let app = new Vue({
+            el: '#data_binding',
+            data: {
+                message: 'ola munod',
+                person: {
+                    name: 'marcos',
+                    anos: 10
+                },
+                tag: '<button>clique aqui</button>',
+                tagMessage: 'essa é uma tag de titulo'
+
+            }
+        })
+    </script>
+    
+</body>
+</html>
