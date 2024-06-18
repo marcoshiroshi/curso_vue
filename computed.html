@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>propriedades armazenadas</title>
+
+</head>
+<body>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.min.js"></script>
+
+    <div id="computed">
+        <h1>name: {{ person.firstName}}</h1>
+        <h1>fullname: {{fullName}}</h1>
+        <h1>fullname 2: {{ replaceName}}</h1>
+    </div>
+    
+
+    <script>
+        let app = new Vue({
+            el: '#computed',
+            data: {
+                message: 'ola mundo teste 1234',
+                person: {
+                    firstName: 'Marcos',
+                    lastName: 'Hiroshi',
+
+                }
+            },
+            computed: {
+                fullName: function(){
+                    return `${this.person.firstName} ${this.person.lastName}`
+                },
+
+                replaceName: {
+                    get: function(){
+                        return `${this.person.firstName} ${this.person.lastName}`
+                    },
+                    set: function(newValue){
+                        let name = newValue.split(' ');
+                        this.person.firstName = name[0];
+                        this.person.lastName = name[1];
+                    },
+                }
+            }
+        })
+    </script>
+    
+</body>
+</html>

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>filtros</title>
+
+</head>
+<body>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.min.js"></script>
+    <script src="https://unpkg.com/vue/dist/vue.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue2-filters/dist/vue2-filters.min.js"></script>
+
+    <div id="filter">
+        <h1>{{message}}</h1>
+        <h1>{{message | pluralize('message') }}</h1>
+
+        <h1>{{ message | upper }}</h1>
+        <h1>{{ salary|real }}</h1>
+        <input type="int" placeholder="digite um valor" v-model="salary">
+    </div>
+    
+
+    <script>
+        let app = new Vue({
+            el: '#filter',
+            data: {
+                message: 'ola mundo teste 1234',
+                salary: 0
+            },
+            filters: {
+                upper: function(value){
+                    return value.toUpperCase();
+                },
+                real: function(value){
+                    return `R$ ${parseInt(value).toFixed(2)}`
+                }
+            }
+
+                
+        })
+    </script>
+    
+</body>
+</html>
