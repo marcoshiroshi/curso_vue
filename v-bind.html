@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>v-bind</title>
+
+</head>
+<body>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.min.js"></script>
+
+    <div id="directives">
+        <h3>acesse o link</h3>
+        <a v-bind:href="url">link para voce acessar</a>
+        <p v-bind:[arg]="value">Lorem ipsum dolor sit amet consectetur adipisicing elit. ad quas quia culpa temporibus dolor architecto! Doloribus, sint inventore.</p>
+    </div>
+    
+    <script>
+        let app = new Vue({
+            el: '#directives',
+            data: {
+                url: 'https://www.google.com.br/?hl=pt-BR',
+                arg: 'title',
+                value: 'titulo de exemplo'
+            },
+        })
+    </script>
+    
+</body>
+</html>

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>v-for</title>
+
+</head>
+<body>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.min.js"></script>
+
+    <div id="directives">
+        <h3>Cidades</h3>
+        <ol>
+            <li v-for="city in citys">{{ city }}</li>
+        </ol>
+        <ul>
+            <li v-for="city in citys">{{ city }}</li>
+        </ul>
+
+        <h3>Paises</h3>
+        <ul>
+            <li v-for="(city, index) in countrys">{{ index }} {{ city.local }} - {{ city.name }}</li>
+        </ul>
+
+        <h3>Paises</h3>
+        <ul>
+            <li v-for="(value, key, city) in countrys">{{ key }}: {{ value }}</li>
+        </ul>
+    </div>
+    
+    <script>
+        let app = new Vue({
+            el: '#directives',
+            data: {
+                citys: ['Nova York',  'Brasilia', 'São Paulo'],
+                countrys: [
+                    {
+                        local: 'Norte America', 
+                        name: 'Nova York'
+                    },
+                    {
+                        local: 'South America', 
+                        name: 'Brasilia'
+                    }
+                ]
+                
+            },
+        })
+    </script>
+    
+</body>
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>v-model</title>
+
+</head>
+<body>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.min.js"></script>
+
+    <div id="directives">
+        <p v-bind:style=" { fontSize: textSize + 'px' }">Lorem ipsum dolor, sit amet consectetur adipisicing elit. iusto harum id dolor amet non molestias laudantium alias?</p>
+        
+        <input v-model="textSize" type="number">
+
+        <p v-bind:style=" { color: textColor }">Lorem ipsum dolor, sit amet consectetur adipisicing elit. iusto harum id dolor amet non molestias laudantium alias?</p>
+
+        <input v-model="textColor" type="text">
+    </div>
+    
+    <script>
+        let app = new Vue({
+            el: '#directives',
+            data: {
+                textSize: 15,
+                textColor: 'red',
+            },
+        })
+    </script>
+    
+</body>
+</html>
