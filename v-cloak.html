@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>v-cloak</title>
+    <style>
+        [v-cloak]{
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.min.js"></script>
+
+    <div id="directives">
+        <h2 v-cloak>{{ nome }}</h2>
+    </div>
+    
+    <script>
+        setTimeout(() => {
+            let app = new Vue({
+                el: '#directives',
+                data: {
+                    nome: 'marcos hiroshi'
+                },
+            })
+        }, 1500)
+        
+    </script>
+    
+</body>
+</html>

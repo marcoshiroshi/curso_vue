@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>v-cloak</title>
+</head>
+<body>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.min.js"></script>
+
+    <div id="directives">
+        <h2 v-capitalize>{{ nome }}</h2>
+    </div>
+    
+    <script>
+        Vue.directive('upper', {
+            inserted(el) {
+                el.innerText = el.innerText.toUpperCase();
+            }
+        })
+
+        let app = new Vue({
+            el: '#directives',
+            data: {
+                nome: 'marcos hiroshi'
+            },
+            directives: {
+                capitalize: {
+                    bind(element){
+                        console.log('BIND - vinculado')
+                    },
+                    inserted(element){
+                        console.log('INSERTED - inserido')
+                        let words = element.innerText.split(' ');
+                        words.forEach((text, index) => {
+                            words[index] = text.charAt(0).toUpperCase() + text.slice(1);
+                        });
+                        element.innerText = words.join(' ');
+                    },
+                    update(elemet){
+                        console.log('UPDATE - atualizado')
+                    },
+                    unbind(element){
+                        console.log('UNBINMD - desvinculado')
+                    },
+                    componentUpdated(element){
+                        console.log('COMPONENT - componente atualizado')
+                    }
+                }
+            } 
+        })
+    </script>
+    
+</body>
+</html>

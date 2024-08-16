@@ -14,6 +14,11 @@
         <p v-on:click="reverseMethod">{{ message }}</p>
         <p v-on:[eventname]="reverseMethod">{{ message }}</p>
 
+        <input v-on:keyup="filterPersons" type="text" placeholder="escreva um nome">
+        <ul>
+            <li v-for="person in personsFiltered">{{ person }}</li>
+        </ul>
+
     </div>
     
     <script>
@@ -21,12 +26,22 @@
             el: '#directives',
             data: {
                 message: 'ola mundo',
-                eventname: 'click'
+                eventname: 'click',
+                persons: ['joao kleber', 'silvio santos', 'roberto carlos', 'hebe camargo'],
+                personsFiltered: []
             },
             methods: {
                 reverseMethod(){
                     return this.message = this.message.split('').reverse().join('');
+                },
+                filterPersons(event){
+                    this.personsFiltered = this.persons.filter(name => {
+                        return name.toUpperCase().includes(event.target.value.toUpperCase())
+                    })
                 }
+            },
+            created(){
+                this.personsFiltered = this.persons
             }
         })
     </script>

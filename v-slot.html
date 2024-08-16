@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>v-slot</title>
+
+</head>
+<body>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.min.js"></script>
+
+    <div id="directives">
+        <textcomponent>
+            <template v-slot:titulo>
+                asd
+            </template>
+            <template v-slot:paragrafo>
+                asd
+            </template>      
+        </textcomponent>
+        <textcomponent>
+            <template v-slot:titulo>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime soluta qui a sed ratione velit natus quas dolor officiis sit optio quam et, vitae quod eum aspernatur eius nisi quos!
+            </template>
+            <template v-slot:paragrafo>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Excepturi voluptatum ullam velit reprehenderit commodi, provident minus nihil? Amet commodi, sint cum ducimus est, voluptates quas minus illo quod at labore!
+            </template>   
+        </textcomponent>
+
+        <textcomponent>
+            <template v-slot:titulo>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Nisi maiores aliquam ipsum hic ullam! Perspiciatis repudiandae cumque quos in quasi eligendi eius incidunt temporibus, distinctio porro iste aut, sit expedita!
+            </template>
+            <template v-slot:paragrafo>
+                asd
+            </template>   
+        </textcomponent>
+
+    </div>
+    
+    <script>
+        Vue.component('textcomponent', {
+            template: `
+                <div>
+                    <h3>
+                        <slot name="titulo"></slot>    
+                    </h3>
+                    <p>
+                        <slot name="paragrafo"></slot>    
+                    </p>
+                </div>
+            `
+        })
+
+
+        let app = new Vue({
+            el: '#directives',
+            data: {
+
+            },
+        })
+    </script>
+    
+</body>
+</html>
